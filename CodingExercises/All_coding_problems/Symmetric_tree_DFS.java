@@ -26,3 +26,28 @@ class Solution {
         && isMirror(left.left, right.right);
     }
 }
+
+/** Reference: BFS */
+
+   public TreeNode iterative_invertTree_BFS(TreeNode root) {
+        //iterative Time: O(N), and Space: O(N), DFS
+
+        //base case
+        if(root == null) return root;
+        
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            //swap and add
+            TreeNode curr = queue.poll();
+
+            /** swap */
+            TreeNode temp = curr.left;
+            curr.left = curr.right;
+            curr.right = temp;
+
+            if(curr.left!=null) queue.add(curr.left);
+            if(curr.right!=null) queue.add(curr.right);
+        }
+        return root;
+    }

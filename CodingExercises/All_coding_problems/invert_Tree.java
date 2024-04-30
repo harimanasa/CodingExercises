@@ -23,6 +23,7 @@ class Solution {
         recursive_invertTree_DFS(root.left);
         recursive_invertTree_DFS(root.right);
 
+        /** swap */
         TreeNode temp = root.left;
         root.left = root.right;
         root.right = temp;
@@ -40,9 +41,12 @@ class Solution {
         while(!queue.isEmpty()){
             //swap and add
             TreeNode curr = queue.poll();
+
+            /** swap */
             TreeNode temp = curr.left;
             curr.left = curr.right;
             curr.right = temp;
+
             if(curr.left!=null) queue.add(curr.left);
             if(curr.right!=null) queue.add(curr.right);
         }
