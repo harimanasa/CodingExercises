@@ -2,6 +2,8 @@
  * I/P = [-2, -1, 0, 2, 3]
  * 
  * O/P = [0, 1, 4, 4, 9]
+ * 
+ * Pattern: Two pointers, left and right
  */
 
 class Solution {
