@@ -1,0 +1,79 @@
+doc: https://docs.google.com/document/d/1Bej899sxuNfxdhfKEphsu_GLpCcpRfLS650ZznlF7cw/edit
+
+Q1: Develop Library mgmt system: APIs (Not at system design level)
+
+Users
+Books 
+
+Reqs:
+
+User -> See the inventory, check out, check-in, search
+
+CRUD - Admin
+Search, Checkout and Check-in - User
+
+
+Datatables:
+User (User ID, username, address, phone number, password, role=reader/admin) 
+Book (BookID, title, author)
+CheckedOutBooks (BookID, title, checkout)
+
+
+API Functionalities:
+
+User creation and login
+boolean Login () -> user ID, password
+boolean createUser() -> user ID, username, address, phone number, password
+boolean deleteUser() -> user ID
+
+User accessing the book
+
+Role:Reader
+boolean searchABook(title) -> searches in CheckedOutBooks -> returns T/F
+String giveBookID(title) -> returns BookID
+boolean checkOutTheBook(BookID, User ID) -> update the record in CheckedOutBooks to T
+boolean returnTheBook(BookID) -> update the record in CheckedOutBooks to F
+
+
+Role:Admin
+Admin -> boolean insertNewBook() -> create a book record in Book table and create another record for the same book in CheckedOutBooks with a default checkout=false 
+Admin -> boolean deleteExistingBook() -> deletes a book record in Book table and deletes another record for the same book in CheckedOutBooks with a default checkout=false 
+
+
+
+Q2) return the index where an integer n can fit in a sorted array
+
+Input sorted array : [ 2,3,6,8,10]
+Number: 4
+
+Output: 2
+
+Input sorted array : [ 2,3,6,8,10]
+Number: 8
+
+Output: 3
+
+
+My answer: 
+Int returnIndex(int[] array, int n){
+Int low = 0;
+Int high = array.length-1;
+
+while(high-low>1){
+	Int mid = low + (high-low)/2;
+	if(array[mid]==n) return mid;
+	
+	if(n > array[low] && n < array[mid]) {
+//check on the left side
+High = mid -1;
+
+} else {
+//check on the right side
+Low = mid +1;
+
+}
+Return low;
+}
+
+}
+

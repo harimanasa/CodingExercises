@@ -2,7 +2,9 @@ class NextGreater {
 
     public static int[] nextGreaterElement(int[] nums1, int[] nums2) {
         
-        Stack<Integer> stack = new Stack<>();
+        Stack<Integer> stack = new Stack<>(); 
+        //Stack should have only numbers whose greater is not found yet
+        
         Map<Integer, Integer> map = new HashMap<>();
 
         // iterate over nums2
