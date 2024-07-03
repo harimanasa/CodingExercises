@@ -71,7 +71,7 @@ n: number of rows in the matrix
 m: number of columns in the matrix
 */
 
-public class Solution {
+public class Sudoku {
   public static void main(String[] argv) {
     char[][] matrix1 = {
       {'W','W','W','W'},

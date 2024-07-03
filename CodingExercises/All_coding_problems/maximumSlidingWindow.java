@@ -1,3 +1,17 @@
+/**
+ * Initialize an empty deque data structure.
+
+2. Iterate through the first w elements in the input array, 
+performing cleanup operations on the deque 
+to maintain a decreasing order of values.
+
+3. Store the maximum value of the initial window.
+
+4. Slide the window through the array, 
+updating the deque and storing maximum values for each window.
+ * 
+ */
+
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
 	

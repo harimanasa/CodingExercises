@@ -1,0 +1,57 @@
+/*
+arr = [2 5  8  10 
+       3 7  11 14
+       6 12 13 15]
+       
+       m-> rows [100] -> 
+       n -> columns
+       
+row/columns are sorted
+O(m*n) -> Brute force
+O(m log (n)) -> Optimal using Binary Search at each row
+
+target -> 6 -> true
+          1 -> false
+          
+          
+*/
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static boolean findElement(int a[][], int target) {
+        
+        //base
+        if(a==null || a.length==0 || a[0].length==0) return false;
+        
+        
+        //logic
+      	int rows = a.length-1;
+        int columns = a[0].length-1;
+
+        
+        for(int i=0; i<=rows; i++){
+            int low = 0;
+            int high = columns;
+            while(low<=high){
+                int mid = low + (high-low)/2;
+                
+                if(a[i][mid]==target) return true;
+                if(a[i][mid]<target) low = mid + 1;
+                else high = mid -1;
+            }
+        }
+          return false; 
+    }
+
+    public static void main(String[] args) {
+        int[][] a = {{2, 5, 8, 10}, {3, 7, 11, 14}, {6, 12, 13, 15}};
+        int target = 6;
+        System.out.println(findElement(a, target));
+    }
+}

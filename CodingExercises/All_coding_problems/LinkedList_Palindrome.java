@@ -1,3 +1,10 @@
+/**
+ * 1. Go to mid
+ * 2. reverse the second half
+ * 3. Compare the two halves from their beginnings
+ * 
+ */
+
 import java.util.*;
 
 class PalindromeList {

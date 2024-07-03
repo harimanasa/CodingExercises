@@ -4,7 +4,9 @@ class Solution {
       throw new IllegalArgumentException();
 
     Arrays.sort(nums);
+
     int smallestDifference = Integer.MAX_VALUE;
+    
     for (int i = 0; i < nums.length - 2; i++) {
       int left = i + 1, right = nums.length - 1;
 
