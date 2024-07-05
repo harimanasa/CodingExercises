@@ -1,34 +1,28 @@
 
 class FirstBadVersion {
-    public static int v;
+    /* The isBadVersion API is defined in the parent class VersionControl.
+      boolean isBadVersion(int version); */
 
-    static boolean isBadVersion(int s) {
-        return s >= v;
-    }
+    public int firstBadVersion(int n) {
+        int low = 0;
+        int high = n;
 
-    static int[] firstBadVersion(int n) {
-        int[] result = new int[2];
-        int first = 1;
-        int last = n;
-        int calls = 0;
+        while(low<=high){
+            int mid = low + (high-low)/2;
 
-        while (first <= last) {
-            int mid = first + (last - first) / 2;
-
-            if (isBadVersion(mid)) {
-                last = mid - 1;
-            } else {
-                first = mid + 1;
+            if(isBadVersion(mid)==true){ //left
+                if(isBadVersion(mid-1) == false) {
+                    return mid; //answer found
+                }
+                else high = mid-1;
+            } else{
+                if(isBadVersion(mid) == false){
+                    low = mid+1;
+                }
             }
-
-            calls += 1;
         }
-
-        result[0] = first;
-        result[1] = calls;
-        return result;
+        return -1;
     }
-    
 
 }
 
