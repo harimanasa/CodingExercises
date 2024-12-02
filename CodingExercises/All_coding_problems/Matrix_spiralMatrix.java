@@ -1,4 +1,4 @@
-class Solution {
+class Matrix_spiralMatrix {
     public List<Integer> spiralOrder(int[][] matrix) {
         List<Integer> result = new ArrayList<>();
         

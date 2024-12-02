@@ -12,6 +12,8 @@
  *         this.right = right;
  *     }
  * }
+ * 
+ * O(n) Time, O(n) Space
  */
 class Solution {
     Integer pastElement = null;
